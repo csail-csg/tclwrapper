@@ -1,7 +1,10 @@
 TCLWrapper
 ==========
 
-Python wrapper to interact with TCL command line interfaces.
+Python wrapper to interact with TCL command line interfaces. In most cases,
+tkinter (with the send command) is enough but sometimes it is convenient to
+interact directly with the tcl cli provided by applications.
+
 
 Installing Non-Development Version
 ----------------------------------
