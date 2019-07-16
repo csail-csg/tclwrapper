@@ -9,7 +9,7 @@ Installing Non-Development Version
 If you want to just install the `tclwrapper` package, you should be able to using the following command:
 
 
-    $ pip3 install https://github.com/csail-csg/tclwrapper
+    $ pip3 install tclwrapper
 
 
 Usage
