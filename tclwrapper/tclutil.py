@@ -1,9 +1,19 @@
-import tkinter as tk
+import tkinter
 
 # use tkinter because it already has some functions to parse tcl output
-_tcl = tk.Tk(useTk = 0)
+_tcl = tkinter.Tk(useTk = 0)
 
-tclstring_to_list = _tcl.tk.splitlist
+def tclstring_to_list(tclstring):
+    ret = _tcl.tk.splitlist(tclstring)
+    # always return the result as a tuple
+    if isinstance(ret, str):
+        if ret == '':
+            return ()
+        else:
+            return (ret,)
+    else:
+        return ret
+
 tclstring_to_nested_list = _tcl.tk.split
 def tclstring_to_flat_list(tclstring):
     return tclstring.replace('{', ' ').replace('}', ' ').split()
