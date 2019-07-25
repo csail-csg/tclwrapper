@@ -15,6 +15,13 @@ def tclstring_to_list(tclstring):
         return ret
 
 def tclstring_to_nested_list(tclstring, levels = None):
+    """
+    Parses the given Tcl string as a nested list.
+
+    If levels is given, then parse tclstring as if it had the given number of
+    levels of nesting. Otherwise parse tclstring into a nested tuple using
+    _tkinter's split method
+    """
     if levels is None:
         # use split from _tkinter
         ret = _tcl.tk.split(tclstring)
@@ -27,7 +34,9 @@ def tclstring_to_nested_list(tclstring, levels = None):
         else:
             return ret
     else:
-        if levels == 0:
+        if levels < 0:
+            raise ValueError('levels must be non-negative')
+        elif levels == 0:
             return tclstring
         else:
             return tuple([tclstring_to_nested_list(x, levels-1) for x in tclstring_to_list(tclstring)])
