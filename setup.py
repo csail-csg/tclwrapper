@@ -10,7 +10,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='tclwrapper',
-    version='0.0.1',
+    version='0.1.0',
     description='Python wrapper for programs that expose a tcl interface',
     long_description=long_description,
     url='https://github.com/csail-csg/tclwrapper',
